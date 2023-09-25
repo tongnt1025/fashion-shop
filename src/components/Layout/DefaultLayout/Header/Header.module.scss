@@ -1,0 +1,65 @@
+.wrapper{
+    height:70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    z-index: 100;
+}
+.inner{
+    height:100%; // ke thua wrap
+    width: 1420px;
+    display: flex;
+    justify-content:space-between;
+    .menu-left{
+        display: flex;
+        height:100%;
+        width: 428px;
+        align-items: center;
+        justify-content: space-between;
+        a{
+            font-size: 1.7rem;
+            
+        }
+    }
+    .menu-right{
+        display: flex;
+        align-items: center;
+        height:100%;
+        font-size: 2.25rem;
+    }
+    .login{
+        margin-right: 8px;
+        padding:8px 18px;
+        color: #4267b2;
+        font-size: 1.3rem;
+        border: 2px solid #4267b2;
+        cursor: pointer;
+        font-weight:500
+    }
+    .register{
+        padding: 8px 20px;
+        color: #4267b2;
+        font-size: 1.3rem;
+        cursor: pointer;
+        color: #fff;
+        background-color: #4267b2;
+        font-weight:500
+    }
+    
+}
+.logo{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position: absolute;
+    inset: 0;
+    img{
+        width: 6%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
