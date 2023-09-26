@@ -1,11 +1,24 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import images from '../../../../asset/image';
+import { useState, useEffect, useRef } from 'react';
+import images from '../../../asset/image';
 const cx = classNames.bind(styles);
 
 function Header() {
+    const headerElement = useRef();
+    const [small, setSmall] = useState(false);
+
+    useEffect(() => {
+        window.onscroll = () => {
+            if (window.scrollY >= 100) {
+                setSmall(!small);
+            } else {
+                setSmall(small);
+            }
+        };
+    }, []);
     return (
-        <header className={cx('wrapper')}>
+        <header className={cx('wrapper') + (small ? [' ' + styles.small] : '')}>
             <div className={cx('logo')}>
                 <img src={images.logo} alt="logo"></img>
             </div>

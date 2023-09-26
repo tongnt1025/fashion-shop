@@ -1,9 +1,8 @@
 import classNames from "classnames/bind";
-
+import { Fragment } from "react";
 function Home() {
     return ( 
-       // <h1>Home</h1>
-       <div></div>
+      <div style={{height:2000}}></div>
      );
 }
 
