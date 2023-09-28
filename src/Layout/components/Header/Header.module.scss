@@ -5,7 +5,6 @@
     justify-content: center;
     position: fixed;
     transition: height 0.3s ease;
-    z-index: 2;
 }
 .small {
     height: 70px;
@@ -22,9 +21,6 @@
         width: 428px;
         align-items: center;
         justify-content: space-between;
-        a {
-            font-size: 1.7rem;
-        }
     }
     .menu-right {
         display: flex;
@@ -36,15 +32,18 @@
         margin-right: 8px;
         padding: 8px 18px;
         color: #4267b2;
-        font-size: 1.3rem;
+        font-size: 13px;
         border: 2px solid #4267b2;
         cursor: pointer;
         font-weight: 500;
+        cursor: pointer;
+        z-index: 2;
+        text-decoration: none;
     }
     .register {
-        padding: 8px 20px;
+        padding: 10.5px 20px;
         color: #4267b2;
-        font-size: 1.3rem;
+        font-size: 13px;
         z-index: 2;
         cursor: pointer;
         //pointer-events: auto;
@@ -52,13 +51,19 @@
         background-color: #4267b2;
         font-weight: 500;
     }
-    .login {
-        cursor: pointer;
-        z-index: 2;
-    }
+}
+
+.item-link{
+    text-decoration:none;
+    font-size:19px;
+    color:black
+}
+.active{
+    color: #4267b2;
 }
 .logo {
-    display: flex;
+    display:inline-flex;
+    z-index: -9;
     justify-content: center;
     align-items: center;
     position: absolute;

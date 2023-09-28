@@ -2,12 +2,33 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import { useState, useEffect, useRef } from 'react';
 import images from '../../../asset/image';
+import { Link } from 'react-router-dom';
+import Button from '../../../components/Button';
 const cx = classNames.bind(styles);
-
 function Header() {
-    const headerElement = useRef();
     const [small, setSmall] = useState(false);
-
+    const [navLink, setNavLink] = useState([
+        {
+            path: '/',
+            display: 'Trang chủ',
+            active: true,
+        },
+        {
+            path: '/products',
+            display: 'Sản phẩm',
+            active: false,
+        },
+        {
+            path: '/accessories',
+            display: 'Phụ kiện',
+            active: false,
+        },
+        {
+            path: '/contact',
+            display: 'Liên Hệ',
+            active: false,
+        },
+    ]);
     useEffect(() => {
         window.onscroll = () => {
             if (window.scrollY >= 100) {
@@ -16,7 +37,19 @@ function Header() {
                 setSmall(small);
             }
         };
-    }, []);
+    },[]);
+    const handleActive = (itemActive) => {
+        setNavLink((prevState) => {
+            prevState.forEach((element) => {
+                if (JSON.stringify(element) === JSON.stringify(itemActive)) {
+                    element.active = true;
+                } else {
+                    element.active = false;
+                }
+            });
+            return prevState;
+        });
+    };
     return (
         <header className={cx('wrapper') + (small ? [' ' + styles.small] : '')}>
             <div className={cx('logo')}>
@@ -24,22 +57,21 @@ function Header() {
             </div>
             <div className={cx('inner')}>
                 <div className={cx('menu-left')}>
-                    <div className="menu-item">
-                        <a>Trang Chủ</a>
-                    </div>
-                    <div className="menu-item">
-                        <a>Sản Phẩm</a>
-                    </div>
-                    <div className="menu-item">
-                        <a>Phụ Kiện</a>
-                    </div>
-                    <div className="menu-item">
-                        <a>Liên Hệ</a>
-                    </div>
+                    {navLink.map((item, index) => {
+                        return (
+                            <div className="menu-item" key={index}>
+                                <Link className={cx('item-link') + (item.active ? [' ' + styles.active] : '')} to={item.path} onClick={() => handleActive(item)}>
+                                    {item.display}
+                                </Link>
+                            </div>
+                        );
+                    })}
                 </div>
                 <div className={cx('menu-right')}>
-                    <button className={cx('login')}>Đăng nhập</button>
-                    <button className={cx('register')}>Đăng ký</button>
+                    <Button to="/login" className={cx('login')}>
+                        ĐĂNG NHẬP
+                    </Button>
+                    <Button className={cx('register')}>ĐĂNG KÝ</Button>
                 </div>
             </div>
         </header>

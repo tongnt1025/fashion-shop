@@ -6,10 +6,10 @@ import Accessories from "../pages/Accessories";
 import Login from "../pages/Login";
 const publicRoutes=[
     {path:'/',component: Home},
-    {path:'/Products',component: Products},
-    {path:'/Contact',component: Contact},
-    {path:'/Accessories',component: Accessories },
-    {path:'/Login',component: Login,layout:null },
+    {path:'/products',component: Products},
+    {path:'/contact',component: Contact},
+    {path:'/accessories',component: Accessories },
+    {path:'/login',component: Login,layout:null },
 ]
 const privateRoutes=[
 
