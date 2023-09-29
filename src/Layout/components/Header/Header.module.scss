@@ -27,6 +27,7 @@
         align-items: center;
         height: 100%;
         font-size: 2.25rem;
+        z-index: 100;
     }
     .login {
         margin-right: 8px;
@@ -37,14 +38,12 @@
         cursor: pointer;
         font-weight: 500;
         cursor: pointer;
-        z-index: 2;
         text-decoration: none;
     }
     .register {
         padding: 10.5px 20px;
         color: #4267b2;
         font-size: 13px;
-        z-index: 2;
         cursor: pointer;
         //pointer-events: auto;
         color: #fff;
