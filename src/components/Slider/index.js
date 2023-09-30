@@ -1,29 +1,29 @@
 import classNames from 'classnames/bind';
 import styles from './Slider.module.scss';
-import Button from '../../../components/Button';
-import images from '../../../asset/image';
+import Button from '../Button';
+import images from '../../asset/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 const cx = classNames.bind(styles);
 function Slider() {
     const arraySlide = [
-        { 
-            img:images.slider1,
+        {
+            img: images.slider1,
             color: '#4267b2',
             title: 'POLO NỮ PIMA CAO CẤP',
             content:
                 'Nhắc đến sự đẳng cấp là không thể không nhắc đến dòng vải pima. Nó tạo nên chất lượng tốt nhất cho bất kỳ sản phẩm thời trang nào. Sợi vải pima dài và dày hơn sợi cotton thông thường gấp đôi nhờ công nghệ dệt tân tiến. Điều đó làm cho kết cấu áo polo chắc chắn, bền chặt, hạn chế tối đa xù lông, mềm mượt, bền màu, vô cùng đảm bảo sức khoẻ người dùng',
         },
         {
-            img:images.slider2,
+            img: images.slider2,
             color: '#fe7e73',
             title: 'Polo Nữ Dáng Suông Modal',
             content:
                 'Polo nữ dáng suông Modal sử dụng công nghệ vải cao cấp thân thiện với môi trường sản xuất độc quyền chống co rút vải, áo polo nữ vải modal là sản phẩm thích hợp cho các bạn có môi trường làm việc năng động như hiện nay',
         },
         {
-            img:images.slider3,
+            img: images.slider3,
             color: '#fbb96b',
             title: 'Polo Nữ Coolmax Lacoste',
             content:
@@ -43,7 +43,7 @@ function Slider() {
     const handleClickLeft = () => {
         return setSliders(() => {
             return arraySlide[
-                index.current > 0 ? (index.current = index.current - 1) : (index.current = arraySlide.length-1)
+                index.current > 0 ? (index.current = index.current - 1) : (index.current = arraySlide.length - 1)
             ];
         });
     };
