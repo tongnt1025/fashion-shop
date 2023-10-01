@@ -13,11 +13,13 @@ function Button({
     disabled = false,
     small = false,
     large = false,
+    animate=false,
     children,
     className,
     leftIcon,
     rightIcon,
     onClick,
+   
     ...passProps
 }) {
     let Comp = 'button';
@@ -42,6 +44,7 @@ function Button({
         rounded,
         small,
         large,
+        animate,
     });
 
     return (

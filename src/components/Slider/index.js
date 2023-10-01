@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Slider.module.scss';
 import Button from '../Button';
 import images from '../../asset/image';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
@@ -30,7 +31,6 @@ function Slider() {
                 'Mẫu áo polo nữ được làm bằng chất liệu coolmax đem lại cảm giác mát lạnh khi mặc. Thiết kế mẫu áo polo coolmax này có kiểu dáng cực kỳ thoải mái. Tạo sự gọn gàng hứa hẹn sẽ là mẫu áo polo vô cùng hot trong thời điểm sắp tới',
         },
     ];
-
     const index = useRef(0);
     const [sliders, setSliders] = useState(arraySlide[index.current]);
     const handleClickRight = () => {
@@ -69,9 +69,18 @@ function Slider() {
                         <img src={sliders.img}></img>
                     </div>
                 </div>
-                <Button large style={{ backgroundColor: sliders.color }}>
-                    XEM CHI TIẾT
-                </Button>
+                <div>
+                    <Button
+                        large
+                        animate
+                        style={{ backgroundColor: sliders.color }}
+                        leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}
+                        className={cx('btn-des')}
+                    >
+                        XEM CHI TIẾT
+                    </Button>
+                </div>
+
                 <div className={cx('icons')}>
                     <FontAwesomeIcon className={cx('icon')} onClick={() => handleClickLeft()} icon={faAngleLeft} />
                     {index.current + 1}/{arraySlide.length}

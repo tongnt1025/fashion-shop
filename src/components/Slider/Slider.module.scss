@@ -49,8 +49,15 @@
     top: -28%;
     right: 5%;
     position: absolute;
-    transform: scale(0) rotate(65deg);
     transition: transform 5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+   
+}
+.animate{
+    transform: scale(0) rotate(65deg);
+   
+}
+.btn-des{
 }
 .img {
     height: 472px;
@@ -63,7 +70,7 @@
     transition: border-radius 13s ease;
     animation: border 10s infinite;
     background-color: red;
-    z-index: -1;
+    z-index: 11;
 }
 @keyframes border {
     0% {

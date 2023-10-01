@@ -2,7 +2,10 @@
     margin-top:170px;
 }
 .header{
-    
+    position:fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 10;
 }
 .wrapper{
     padding: 1px;

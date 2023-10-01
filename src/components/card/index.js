@@ -11,40 +11,41 @@ function Card() {
     return (
         <div className={cx('wrapper')}>
             <Container className={cx('container')}>
+                 
                 <Row>
                     <Col>
                         <div className={cx('card-item')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faBagShopping}></FontAwesomeIcon>
                             <div className={cx('content')}>
-                                <span className={cx('title')}>Mien phi giao hang</span>
+                                <span className={cx('title')}>Miễn phí giao hàng</span>
                                 <span  className={cx('desc')}>Mien phi ship voi don hang 239k</span>
                             </div>
                         </div>
                     </Col>
                     <Col>
                         <div className={cx('card-item')}>
-                            <FontAwesomeIcon className={cx('icon')} icon={faBagShopping}></FontAwesomeIcon>
+                            <FontAwesomeIcon className={cx('icon')} icon={faCreditCard}></FontAwesomeIcon>
                             <div className={cx('content')}>
-                                <span className={cx('title')}>Mien phi giao hang</span>
-                                <span  className={cx('desc')}>Mien phi ship voi don hang 239k</span>
+                                <span className={cx('title')}>Thanh toán COD</span>
+                                <span  className={cx('desc')}>Thanh toán khi nhận hàng(COD)</span>
                             </div>
                         </div>
                     </Col>
                     <Col>
                         <div className={cx('card-item')}>
-                            <FontAwesomeIcon className={cx('icon')} icon={faBagShopping}></FontAwesomeIcon>
+                            <FontAwesomeIcon className={cx('icon')} icon={faGem}></FontAwesomeIcon>
                             <div className={cx('content')}>
-                                <span className={cx('title')}>Mien phi giao hang</span>
-                                <span  className={cx('desc')}>Mien phi ship voi don hang 239k</span>
+                                <span className={cx('title')}>Khách hàng vip</span>
+                                <span  className={cx('desc')}>Ưu dãi dành cho khách hàng vip</span>
                             </div>
                         </div>
                     </Col>
                     <Col>
                         <div className={cx('card-item')}>
-                            <FontAwesomeIcon className={cx('icon')} icon={faBagShopping}></FontAwesomeIcon>
+                            <FontAwesomeIcon className={cx('icon')} icon={faHandHoldingHeart}></FontAwesomeIcon>
                             <div className={cx('content')}>
-                                <span className={cx('title')}>Mien phi giao hang</span>
-                                <span  className={cx('desc')}>Mien phi ship voi don hang 239k</span>
+                                <span className={cx('title')}>Hỗ trợ bảo hàng</span>
+                                <span  className={cx('desc')}>Đổi sửa tại tất cả store</span>
                             </div>
                         </div>
                     </Col>

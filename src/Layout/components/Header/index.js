@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import images from '../../../asset/image';
 import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
+import { Container } from 'react-bootstrap';
 const cx = classNames.bind(styles);
 function Header() {
     const [small, setSmall] = useState(false);
