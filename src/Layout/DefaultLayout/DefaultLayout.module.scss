@@ -1,17 +1,11 @@
-.slider{
-    margin-top:170px;
-}
 .header{
     position:fixed;
     background-color: white;
     width: 100%;
-    z-index: 10;
+    z-index: 100;
 }
 .wrapper{
     padding: 1px;
     display: flex;
     flex-direction: column;
-}
-.card{
-    height: 500px;
 }

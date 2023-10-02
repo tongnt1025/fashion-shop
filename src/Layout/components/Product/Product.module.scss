@@ -1,13 +1,13 @@
 
 .container{
     min-width: 1420px;
-    height: 1000vh;
 }
 .item{
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
 }
 .list-img{
     display: flex;
@@ -72,4 +72,13 @@ p{
             transition: transform 0.8s ease, opacity 0.5s ease;
         }
     }
+}
+.banner>img{
+    max-width: 100%;
+}
+.banner{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:50px
 }

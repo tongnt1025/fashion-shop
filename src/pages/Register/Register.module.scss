@@ -1,0 +1,18 @@
+.wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:100px;
+    flex-direction: column;
+}
+label{
+    min-width: 200px;
+}
+.input-container{
+    margin-bottom:20px;
+}
+.button-container>button{
+    width: 100px;
+    height: 35px;
+    display: block;
+}

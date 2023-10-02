@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import styles from './Login.module.scss';
+import styles from './Register.module.scss';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
-function Login() {
+function Register() {
     const [user, setUser] = useState('');
     const [pass, setPass] = useState('');
     const navigate = useNavigate();
@@ -13,18 +14,8 @@ function Login() {
             user: user,
             pass: pass,
         };
-        // axios.post('http://localhost/backend/create.php', userData).then((response) => {
-        // });
-        axios.get('http://localhost/backend/read.php').then((response) => {
-            const users = response.data.data;
-            console.log(users);
-            users.map((item) => {
-              if(pass===item.passWord && user===item.userName) {
-                console.log("dang nhap thanh cong");
-              }
-            });
+        axios.post('http://localhost/backend/create.php', userData).then((response) => {
         });
-        
     };
     return (
         <div>
@@ -38,11 +29,12 @@ function Login() {
                     <input value={pass} onChange={(e) => setPass(e.target.value)} />
                 </div>
                 <div className={cx('button-container')}>
-                    <button onClick={(e) => submitHandler(e)}>Đăng nhập</button>
+                    <button onClick={(e) => submitHandler(e)}>Đăng kí</button>
                 </div>
+                <Link to="/login">Quay về trang đăng nhập</Link>
             </div>
         </div>
     );
 }
 
-export default Login;
+export default Register;

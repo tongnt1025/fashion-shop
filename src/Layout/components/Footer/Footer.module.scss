@@ -1,0 +1,35 @@
+.inner{
+    align-items:center;
+    font-size: 14.3px;
+    flex-direction: column;
+}
+.wrapper{
+    padding: 70px 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-size: 14.3px;
+}
+.container{
+}
+.title{
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: block;
+}
+.inner-img{
+    display: flex;
+    margin-bottom: 20px;
+}
+.inner-img>img{
+    max-width: 40%;
+}
+.last{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.des>div{
+    margin-bottom:10px;
+}

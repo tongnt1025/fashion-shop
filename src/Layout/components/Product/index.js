@@ -77,8 +77,334 @@ function Product() {
                 </Col>
                 
             </Row>
+            <Row>
+               <p>SẢN PHẨM MỚI</p>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                            <img src={images.product2}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                
+            </Row>
+            <Row>
+              
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                            <img src={images.product2}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                
+            </Row>
+            <div className={cx('banner')}>
+                <img src={images.banner}></img>
+            </div>
+            <Row>
+               <p>PHỔ BIẾN</p>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                            <img src={images.product2}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                
+            </Row>
+            <Row>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                            <img src={images.product2}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                
+            </Row>
+            <Row>
+              
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                            <img src={images.product2}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                <Col>
+                    <div className={cx('item')}>
+                        <div className={cx('list-img')}>
+                            <img src={images.product1}></img>
+                        </div>
+                        <span className={cx('name')}>Quan jean 11</span>
+                        <div className={cx('price')}>
+                            <span>10000</span>
+                            <span className={cx('price-old')}>10000</span>
+                        </div>
+                        <Button small animate leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}>
+                            CHỌN MUA
+                        </Button>
+                    </div>
+                </Col>
+                
+            </Row>
         </Container>
     );
 }
-
 export default Product;

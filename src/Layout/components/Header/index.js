@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
+
 import { useState, useEffect, useRef } from 'react';
 import images from '../../../asset/image';
 import { Link } from 'react-router-dom';
@@ -72,7 +73,7 @@ function Header() {
                     <Button to="/login" className={cx('login')}>
                         ĐĂNG NHẬP
                     </Button>
-                    <Button className={cx('register')}>ĐĂNG KÝ</Button>
+                    <Button  to="/register" className={cx('register')}>ĐĂNG KÝ</Button>
                 </div>
             </div>
         </header>
