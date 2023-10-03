@@ -1,18 +1,72 @@
-.wrapper{
-    display:flex;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #70c1ff, #498ffc);
+    h2 {
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 40px;
+    }
+    label {
+        color: #fff;
+        margin-bottom: 5px;
+    }
+    
+    input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    button {
+        padding: 10px;
+        background-color: #fff;
+        color: #498ffc;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+  
+    
+    @media (max-width: 480px) {
+        .card {
+            width: 100%;
+            max-width: 350px;
+        }
+    }
+    .prevLogin{
+        text-decoration: none;
+        text-align: center;
+        margin-top:20px;
+        color:red;
+    }
+    .error{
+        font-size:14px;
+        color:red;
+    }
+}
+
+.card {
+    width: 350px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
     justify-content:center;
-    align-items:center;
-    margin-top:100px;
-    flex-direction: column;
+    flex-direction:column;
 }
-label{
-    min-width: 200px;
-}
-.input-container{
-    margin-bottom:20px;
-}
-.button-container>button{
-    width: 100px;
-    height: 35px;
-    display: block;
-}
+
+

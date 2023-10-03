@@ -19,7 +19,6 @@ function Button({
     leftIcon,
     rightIcon,
     onClick,
-   
     ...passProps
 }) {
     let Comp = 'button';
@@ -34,7 +33,6 @@ function Button({
         props.href = href;
         Comp = 'a';
     }
-
     const classes = cx('',{
         [className]: className,
         primary,

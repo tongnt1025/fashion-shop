@@ -8,30 +8,85 @@ const cx = classNames.bind(styles);
 function Register() {
     const [user, setUser] = useState('');
     const [pass, setPass] = useState('');
+    const [email, setEmail] = useState('');
+    const [error, setError] = useState({
+        errorEmail: '',
+        errorPass: ' ',
+    });
     const navigate = useNavigate();
     const submitHandler = (e) => {
-        const userData = {
-            user: user,
-            pass: pass,
-        };
-        axios.post('http://localhost/backend/create.php', userData).then((response) => {
+        let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+        if (!emailRegex.test(email)) {
+            e.currentTarget.disable = true;
+        } else {
+            const userData = {
+                user: user,
+                pass: pass,
+                email: email,
+            };
+            axios.post('http://localhost/backend/create.php', userData).then((response) => {});
+        }
+    };
+    const handleBlurEmail = (e) => {
+        let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+        setError((prev) => {
+            return !emailRegex.test(email)
+                ? {
+                      errorEmail: 'Email không hợp lệ',
+                      errorPass: prev.errorPass,
+                  }
+                : {
+                      errorEmail: '',
+                      errorPass: prev.errorPass,
+                  };
+        });
+    };
+    const handleBlurPass = (e) => {
+        setError((prev) => {
+            return pass.length < 8
+                ? {
+                      errorEmail: prev.errorEmail,
+                      errorPass: 'Mật khẩu dài ít nhất 8 kí tự',
+                  }
+                : {
+                      errorEmail: prev.errorEmail,
+                      errorPass: '',
+                  };
         });
     };
     return (
-        <div>
-            <div className={cx('wrapper')}>
-                <div className={cx('input-container')}>
-                    <label>Username </label>
-                    <input value={user} onChange={(e) => setUser(e.target.value)} />
-                </div>
-                <div className={cx('input-container')}>
-                    <label>Password </label>
-                    <input value={pass} onChange={(e) => setPass(e.target.value)} />
-                </div>
-                <div className={cx('button-container')}>
-                    <button onClick={(e) => submitHandler(e)}>Đăng kí</button>
-                </div>
-                <Link to="/login">Quay về trang đăng nhập</Link>
+        <div className={cx('container')}>
+            <div className={cx('card')}>
+                <h2>YOLO</h2>
+                <label>Email</label>
+                <input
+                    value={email}
+                    type="email"
+                    onBlur={(e) => handleBlurEmail(e)}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Nhập email"
+                />
+                <span className={cx('error')}>{error.errorEmail}</span>
+                <label>Tài khoản</label>
+                <input
+                    type="text"
+                    value={user}
+                    onChange={(e) => setUser(e.target.value)}
+                    placeholder="Nhập tài khoản"
+                />
+                <label>Mật khẩu</label>
+                <input
+                    type="password"
+                    onBlur={(e) => handleBlurPass(e)}
+                    value={pass}
+                    onChange={(e) => setPass(e.target.value)}
+                    placeholder="Nhập mật khẩu"
+                />
+                <span className={cx('error')}>{error.errorPass}</span>
+                <button onClick={(e) => submitHandler(e)}>Đăng ký</button>
+                <Link className={cx('prevLogin')} to="/login">
+                    Quay về trang đăng nhập
+                </Link>
             </div>
         </div>
     );
