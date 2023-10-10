@@ -3,7 +3,6 @@ import styles from './DefaultLayout.module.scss';
 import Slider from '../../components/Slider';
 import Card from '../../components/card';
 import Footer from '../components/Footer';
-import Product from '../components/Product';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 function DefaultLayout({ children }) {

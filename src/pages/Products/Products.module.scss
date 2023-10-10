@@ -1,6 +1,26 @@
-
 .container{
     min-width: 1420px;
+    margin-top: 200px;
+}
+.title{
+    font-weight: 600;
+    margin-bottom: 16px;
+    font-size: 17px;
+    display: inline-block;
+}
+ul{
+    list-style-type:none;
+    padding: 0;
+    li{
+        font-size:20px;
+        color:#8d8d8d;
+        display: block;
+    }
+}
+.custom-checkbox{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
 }
 .item{
     justify-content: center;
@@ -36,7 +56,7 @@
 p{
     text-align: center;
     font-size: 2rem;
-    margin: 20px 0px;
+    margin: 30px 0px;
     font-weight: 500;
 }
 .list-img{

@@ -9,21 +9,23 @@ const cx = classNames.bind(styles);
 function Login() {
     const [user, setUser] = useState('');
     const [pass, setPass] = useState('');
+    const [error,setError] = useState('');
     const navigate = useNavigate();
-    const UserContext = createContext();
     const submitHandler = (e) => {
         const userData = {
             user: user,
             pass: pass,
         };
-        // axios.post('http://localhost/backend/create.php', userData).then((response) => {
-        // });
-        axios.get('http://localhost/backend/read.php').then((response) => {
+        axios.get('http://localhost/backend/apiAllUser.php').then((response) => {
             const users = response.data.data;
             console.log(users);
             users.map((item) => {
                 if (pass === item.passWord && user === item.userName) {
+                    setError("");
                     navigate('/', { state: user });
+                }
+                else{
+                    setError("Tài khoản không chính xác");
                 }
             });
         });
@@ -49,6 +51,7 @@ function Login() {
                     onChange={(e) => setPass(e.target.value)}
                     placeholder="Enter your password"
                 />
+                <p className={cx('error')}>{error}</p>
                 <button onClick={(e) => submitHandler(e)}>Đăng nhập</button>
             </div>
         </div>

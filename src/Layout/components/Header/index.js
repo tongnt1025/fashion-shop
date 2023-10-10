@@ -1,19 +1,20 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef,createContext } from 'react';
 import images from '../../../asset/image';
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
+import Slider from '../../../components/Slider';
 import { useLocation } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUser} from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
-
 function Header() {
     const { state } = useLocation();
     const [small, setSmall] = useState(false);
-    const [user,setUser] = useState(state);
+    const [user, setUser] = useState(state);
+   
     const [navLink, setNavLink] = useState([
         {
             path: '/',
@@ -36,10 +37,13 @@ function Header() {
             active: false,
         },
     ]);
+
     useEffect(() => {
+        
         window.onscroll = () => {
             if (window.scrollY >= 100) {
                 setSmall(!small);
+                console.log(123);
             } else {
                 setSmall(small);
             }
@@ -57,11 +61,11 @@ function Header() {
             return prevState;
         });
     };
-    const handleLogOut=()=>{
+    const handleLogOut = () => {
         setUser(null);
         console.log(user);
-    }
-        
+    };
+
     return (
         <header className={cx('wrapper') + (small ? [' ' + styles.small] : '')}>
             <div className={cx('logo')}>
@@ -85,19 +89,19 @@ function Header() {
                 </div>
                 <div className={cx('menu-right')}>
                     {user === null ? (
-                        <div>
+                        <Fragment>
                             <Button to="/login" className={cx('login')}>
                                 ĐĂNG NHẬP
                             </Button>
                             <Button to="/register" className={cx('register')}>
                                 ĐĂNG KÝ
                             </Button>
-                        </div>
+                        </Fragment>
                     ) : (
                         <div>
-                           <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                           <Button className={cx('user-data')}>{state}</Button>
-                            <Button to="" className={cx('register')} onClick={()=>handleLogOut()}>
+                            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+                            <Button className={cx('user-data')}>{state}</Button>
+                            <Button to="" className={cx('register')} onClick={() => handleLogOut()}>
                                 ĐĂNG XUẤT
                             </Button>
                         </div>

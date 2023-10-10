@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { Fragment,useContext } from 'react';
 import Slider from '../../components/Slider';
 import Card from '../../components/card';
-import Product from '../../Layout/components/Product';
+import ProductView from '../../Layout/components/ProductView';
 import styles from './Home.module.scss'
 import { useLocation } from 'react-router-dom';
 const cx = classNames.bind(styles);
@@ -21,7 +21,7 @@ function Home(children) {
             </div>
 
             <div>
-                <Product />
+                <ProductView />
             </div> 
         </div>
     );

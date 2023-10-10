@@ -1,11 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './Slider.module.scss';
 import Button from '../Button';
+import { Fragment } from 'react';
 import images from '../../asset/image';
+import { Content } from '../../Layout/components/Header';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState,useContext } from 'react';
 const cx = classNames.bind(styles);
 function Slider() {
     const arraySlide = [
@@ -31,6 +33,8 @@ function Slider() {
                 'Mẫu áo polo nữ được làm bằng chất liệu coolmax đem lại cảm giác mát lạnh khi mặc. Thiết kế mẫu áo polo coolmax này có kiểu dáng cực kỳ thoải mái. Tạo sự gọn gàng hứa hẹn sẽ là mẫu áo polo vô cùng hot trong thời điểm sắp tới',
         },
     ];
+    const [postion, setPostion] = useState(false);
+   
     const index = useRef(0);
     const [sliders, setSliders] = useState(arraySlide[index.current]);
     const handleClickRight = () => {
@@ -54,31 +58,30 @@ function Slider() {
                     index.current < arraySlide.length - 1 ? (index.current = index.current + 1) : (index.current = 0)
                 ];
             });
-        }, 7000);
+        }, 13000);
     }, []);
-    console.log(index.current);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('slider-top')}>
                     <div className={cx('content')}>
-                        <span className={cx('title')}>{sliders.title}</span>
+                        <span style={{ color: sliders.color }} className={cx('title')}>
+                            {sliders.title}
+                        </span>
                         <span className={cx('desc')}>{sliders.content}</span>
+                        <Button
+                            large
+                            animate
+                            style={{ backgroundColor: sliders.color }}
+                            leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}
+                            className={cx('btn-des')}
+                        >
+                            XEM CHI TIẾT
+                        </Button>
                     </div>
-                    <div className={cx('img')} style={{ backgroundColor: sliders.color }}>
+                    <div className={cx('img')+ (postion ? [' ' + styles.change] : '')} style={{ backgroundColor: sliders.color }}>
                         <img src={sliders.img}></img>
                     </div>
-                </div>
-                <div>
-                    <Button
-                        large
-                        animate
-                        style={{ backgroundColor: sliders.color }}
-                        leftIcon={<FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>}
-                        className={cx('btn-des')}
-                    >
-                        XEM CHI TIẾT
-                    </Button>
                 </div>
 
                 <div className={cx('icons')}>

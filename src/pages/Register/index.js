@@ -16,7 +16,7 @@ function Register() {
     const navigate = useNavigate();
     const submitHandler = (e) => {
         let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
-        if (!emailRegex.test(email)) {
+        if (!emailRegex.test(email) || pass.length < 8) {
             e.currentTarget.disable = true;
         } else {
             const userData = {
@@ -24,7 +24,8 @@ function Register() {
                 pass: pass,
                 email: email,
             };
-            axios.post('http://localhost/backend/create.php', userData).then((response) => {});
+            axios.post('http://localhost/backend/apiCreateUser.php', userData).then((data) => {});
+            alert("Đăng kí tài khoản thành công");
         }
     };
     const handleBlurEmail = (e) => {
