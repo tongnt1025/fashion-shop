@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import styles from './Login.module.scss';
 import { Route } from 'react-router-dom';
 import Home from '../Home';
+import Products from '../Products';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 function Login() {
@@ -11,6 +12,7 @@ function Login() {
     const [pass, setPass] = useState('');
     const [error,setError] = useState('');
     const navigate = useNavigate();
+   
     const submitHandler = (e) => {
         const userData = {
             user: user,
@@ -22,6 +24,7 @@ function Login() {
             users.map((item) => {
                 if (pass === item.passWord && user === item.userName) {
                     setError("");
+                    localStorage.removeItem('cart');
                     navigate('/', { state: user });
                 }
                 else{

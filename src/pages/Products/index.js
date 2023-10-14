@@ -4,14 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../components/Button';
 import {useNavigate } from 'react-router-dom';
 const cx = classNames.bind(styles);
-
 function Products() {
     const navigate=useNavigate();
     const [arrayCheckbox, setArrayCheckbox] = useState([]);
@@ -22,7 +21,6 @@ function Products() {
         let dataNew = { [key]: arrayCheckbox[i] };
         data = { ...data, ...dataNew };
     }
-
     axios.post('http://localhost/backend/apiCustomerProduct.php', data).then((response) => {
         setProducts(response.data.data);
     });

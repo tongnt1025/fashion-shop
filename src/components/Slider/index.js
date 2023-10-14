@@ -7,9 +7,11 @@ import { Content } from '../../Layout/components/Header';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useRef, useState,useContext } from 'react';
+import { useEffect, useRef, useState, useContext,createContext } from 'react';
+import Header from '../../Layout/components/Header';
 const cx = classNames.bind(styles);
 function Slider() {
+       
     const arraySlide = [
         {
             img: images.slider1,
@@ -34,7 +36,7 @@ function Slider() {
         },
     ];
     const [postion, setPostion] = useState(false);
-   
+
     const index = useRef(0);
     const [sliders, setSliders] = useState(arraySlide[index.current]);
     const handleClickRight = () => {
@@ -60,8 +62,10 @@ function Slider() {
             });
         }, 13000);
     }, []);
+   
     return (
         <div className={cx('wrapper')}>
+       
             <div className={cx('inner')}>
                 <div className={cx('slider-top')}>
                     <div className={cx('content')}>
@@ -79,7 +83,10 @@ function Slider() {
                             XEM CHI TIẾT
                         </Button>
                     </div>
-                    <div className={cx('img')+ (postion ? [' ' + styles.change] : '')} style={{ backgroundColor: sliders.color }}>
+                    <div
+                        className={cx('img') + (postion ? [' ' + styles.change] : '')}
+                        style={{ backgroundColor: sliders.color }}
+                    >
                         <img src={sliders.img}></img>
                     </div>
                 </div>

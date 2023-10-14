@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import { useState, useEffect, useRef,createContext } from 'react';
+import { Tooltip } from 'react-tooltip';
+import { useState, useEffect, useRef, createContext, useContext } from 'react';
 import images from '../../../asset/image';
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,13 +9,13 @@ import Button from '../../../components/Button';
 import Slider from '../../../components/Slider';
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 function Header() {
     const { state } = useLocation();
     const [small, setSmall] = useState(false);
     const [user, setUser] = useState(state);
-   
+    const [cart, setCart] = useState([]);
     const [navLink, setNavLink] = useState([
         {
             path: '/',
@@ -37,13 +38,16 @@ function Header() {
             active: false,
         },
     ]);
-
     useEffect(() => {
-        
+        setCart((prev) => {
+            return [...prev, JSON.parse(localStorage.getItem('cart'))];
+        });
+    }, [localStorage.getItem('cart')]);
+    console.log(cart);
+    useEffect(() => {
         window.onscroll = () => {
             if (window.scrollY >= 100) {
                 setSmall(!small);
-                console.log(123);
             } else {
                 setSmall(small);
             }
@@ -63,7 +67,6 @@ function Header() {
     };
     const handleLogOut = () => {
         setUser(null);
-        console.log(user);
     };
 
     return (
@@ -99,11 +102,39 @@ function Header() {
                         </Fragment>
                     ) : (
                         <div>
-                            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                            <Button className={cx('user-data')}>{state}</Button>
+                            <FontAwesomeIcon
+                                className={cx('icon-cart')}
+                                data-tooltip-id="my-tooltip"
+                                icon={faShoppingCart}
+                            ></FontAwesomeIcon>
+                            <FontAwesomeIcon className={cx('icon-user')} icon={faUser}></FontAwesomeIcon>
+                            <Button className={cx('user-data')}>{user}</Button>
                             <Button to="" className={cx('register')} onClick={() => handleLogOut()}>
                                 ĐĂNG XUẤT
                             </Button>
+                            <Tooltip
+                                id="my-tooltip"
+                                place={'bottom'}
+                                style={{ backgroundColor: 'white', boxShadow: '10px 10px 10px 10px #aaaaaa' }}
+                            >
+                                {cart.length > 1 ? (
+                                    cart.map((item, index) => {
+                                        return index > 0 ? (
+                                            <div className={cx('cart-container')}>
+                                                <div className={cx('cart-img')}>
+                                                    <img src={item.img ?? ""}></img>
+                                                </div>
+                                                <div className={cx('cart-name')}>{item.name}</div>
+                                                <div className={cx('cart-quantity')}> x {item.quantity}</div>
+                                            </div>
+                                        ) : (
+                                            ''
+                                        );
+                                    })
+                                ) : (
+                                    <div className={cx('cart-name')}>Chua co sp</div>
+                                )}
+                            </Tooltip>
                         </div>
                     )}
                 </div>

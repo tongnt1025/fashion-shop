@@ -16,7 +16,6 @@ import { useEffect, useRef, useState } from 'react';
 import ProductDesc from '../../../components/ProductDesc';
 import { useNavigate } from 'react-router-dom';
 const cx = classNames.bind(styles);
-export const MyContext = createContext();
 function Product() {
     const [products, setProducts] = useState([]);
     useEffect(() => {

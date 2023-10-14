@@ -21,6 +21,14 @@
     font-size: 26px;
     font-weight: 600;
 }
+.total{
+    font-size:25px;
+    font-weight: 600;
+    margin: 10px 0px;
+    >div{
+        color:#4267b2
+    }
+}
 .size>span{
     display: flex;
     align-items: center;
