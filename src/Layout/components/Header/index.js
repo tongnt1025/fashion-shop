@@ -2,20 +2,19 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import { Tooltip } from 'react-tooltip';
 import { useState, useEffect, useRef, createContext, useContext } from 'react';
-import images from '../../../asset/image';
 import { Fragment } from 'react';
+import logo from '../../../assets/images/Logo-2.png'
 import { Link } from 'react-router-dom';
 import Button from '../../../components/Button';
-import Slider from '../../../components/Slider';
+import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
-function Header() {
+function Header({carts}) {
     const { state } = useLocation();
     const [small, setSmall] = useState(false);
     const [user, setUser] = useState(state);
-    const [cart, setCart] = useState([]);
     const [navLink, setNavLink] = useState([
         {
             path: '/',
@@ -38,12 +37,7 @@ function Header() {
             active: false,
         },
     ]);
-    useEffect(() => {
-        setCart((prev) => {
-            return [...prev, JSON.parse(localStorage.getItem('cart'))];
-        });
-    }, [localStorage.getItem('cart')]);
-    console.log(cart);
+   
     useEffect(() => {
         window.onscroll = () => {
             if (window.scrollY >= 100) {
@@ -72,7 +66,7 @@ function Header() {
     return (
         <header className={cx('wrapper') + (small ? [' ' + styles.small] : '')}>
             <div className={cx('logo')}>
-                <img src={images.logo} alt="logo"></img>
+                <img src={logo} alt="logo"></img>
             </div>
             <div className={cx('inner')}>
                 <div className={cx('menu-left')}>
@@ -117,22 +111,21 @@ function Header() {
                                 place={'bottom'}
                                 style={{ backgroundColor: 'white', boxShadow: '10px 10px 10px 10px #aaaaaa' }}
                             >
-                                {cart.length > 1 ? (
-                                    cart.map((item, index) => {
-                                        return index > 0 ? (
+                                {carts.length > 0 ? (
+                                    carts.map((item, index) => {
+                                        return (
                                             <div className={cx('cart-container')}>
                                                 <div className={cx('cart-img')}>
                                                     <img src={item.img ?? ""}></img>
                                                 </div>
                                                 <div className={cx('cart-name')}>{item.name}</div>
-                                                <div className={cx('cart-quantity')}> x {item.quantity}</div>
+                                                <div className={cx('cart-quantity')}> x {item.quantity}{item.size}</div>
+                                                <div className={cx('cart-total')}>{item.totalPrice}</div>
                                             </div>
-                                        ) : (
-                                            ''
-                                        );
+                                        ) 
                                     })
                                 ) : (
-                                    <div className={cx('cart-name')}>Chua co sp</div>
+                                    <div className={cx('cart-name')}>Chưa có sản phẩm</div>
                                 )}
                             </Tooltip>
                         </div>
@@ -142,5 +135,9 @@ function Header() {
         </header>
     );
 }
-
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+      carts: state.carts,
+    };
+  };
+export default connect(mapStateToProps)(Header);

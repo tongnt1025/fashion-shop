@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './Slider.module.scss';
 import Button from '../Button';
 import { Fragment } from 'react';
-import images from '../../asset/image';
+import images from '../../assets/images';
 import { Content } from '../../Layout/components/Header';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

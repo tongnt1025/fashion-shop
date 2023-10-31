@@ -10,29 +10,39 @@ const cx = classNames.bind(styles);
 function Login() {
     const [user, setUser] = useState('');
     const [pass, setPass] = useState('');
-    const [error,setError] = useState('');
+    const [error, setError] = useState('');
     const navigate = useNavigate();
-   
+
     const submitHandler = (e) => {
         const userData = {
             user: user,
             pass: pass,
         };
-        axios.get('http://localhost/backend/apiAllUser.php').then((response) => {
-            const users = response.data.data;
-            console.log(users);
-            users.map((item) => {
-                if (pass === item.passWord && user === item.userName) {
-                    setError("");
-                    localStorage.removeItem('cart');
-                    navigate('/', { state: user });
-                }
-                else{
-                    setError("Tài khoản không chính xác");
-                }
-            });
-        });
+        // axios.get('http://webshopnttong1025.infinityfreeapp.com/apiAllUser.php').then((response) => {
+        //     const users = response.data.data;
+        //     console.log(users);
+        //     users.map((item) => {
+        //         if (pass === item.passWord && user === item.userName) {
+        //             setError("");
+        //             localStorage.removeItem('cart');
+        //             navigate('/', { state: user });
+        //         }
+        //         else{
+        //             setError("Tài khoản không chính xác");
+        //         }
+        //     });
+        // });
+        let userName = localStorage.getItem('username');
+        let passWord = localStorage.getItem('password');
+        if (pass === passWord && user === userName) {
+            setError('');
+            localStorage.removeItem('cart');
+            navigate('/', { state: user });
+        } else {
+            setError('Tài khoản không chính xác');
+        }
     };
+
     return (
         <div className={cx('container')}>
             <div className={cx('card')}>

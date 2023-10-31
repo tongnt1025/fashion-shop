@@ -6,12 +6,11 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import styles from './ProductDesc.module.scss';
 import Button from '../Button';
-import Header from '../../Layout/components/Header';
 import classNames from 'classnames/bind';
-import { ContextProvider } from '../../ContextProduct';
-import { ContextProduct } from '../../ContextProduct';
+import { connect } from 'react-redux';
+import { addTask } from '../../taskActions';
 const cx = classNames.bind(styles);
-function ProductDesc() {
+function ProductDesc({ carts, addTask }) {
     let value = JSON.parse(localStorage.getItem('productDesc'));
     const [count, setCount] = useState(0);
     const [active, setActive] = useState('');
@@ -30,21 +29,31 @@ function ProductDesc() {
             return prev === 0 ? 0 : prev - 1;
         });
     };
-
+    const handleAddCart = () => {
+        const newTask = {
+            img: value.image01,
+            name:value.title,
+            quantity: count,
+            totalPrice: count * value.price,
+            size:active
+        };
+        alert("Thêm giỏ hàng vào thành công");
+       return addTask(newTask);
+    };
     return (
         <Container className={cx('container')}>
             <Row>
                 <Col xl={5}>
                     <div className={cx('col-left')}>
                         <div className={cx('img')}>
-                            <img src={value.imgmodel}></img>
+                            <img src={value.image01}></img>
                         </div>
                     </div>
                 </Col>
                 <Col xl={7}>
                     <div className={cx('col-right')}>
-                        <div className={cx('name')}>{value.name}</div>
-                        <div className={cx('price')}>{value.pricepromotion}</div>
+                        <div className={cx('name')}>{value.title}</div>
+                        <div className={cx('price')}>{value.price}</div>
                         <div className={cx('title')}>Kích cỡ</div>
                         <div className={cx('size')}>
                             <span
@@ -76,21 +85,11 @@ function ProductDesc() {
                         </button>
                         <div className={cx('total')}>
                             Thành tiền
-                            <div>{count * value.pricepromotion}</div>
+                            <div>{count * value.price}</div>
                         </div>
                         <div className={cx('desc')}>{value.description}</div>
                         <div className={cx('button')}>
-                            <Button
-                                large
-                                onClick={(e) => {
-                                    localStorage.setItem('cart',JSON.stringify({
-                                        quantity: count,
-                                        name: value.name,
-                                        img: value.imgmodel,
-                                    }));
-                                    alert('Thêm vào giỏ hàng thành công')
-                                }}
-                            >
+                            <Button large onClick={ handleAddCart}>
                                 THÊM VÀO GIỎ
                             </Button>
                             <Button large>MUA NGAY</Button>
@@ -101,5 +100,13 @@ function ProductDesc() {
         </Container>
     );
 }
+const mapStateToProps = (state) => {
+    return {
+        carts: state.carts,
+    };
+};
 
-export default ProductDesc;
+const mapDispatchToProps = {
+    addTask,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDesc);

@@ -1,5 +1,5 @@
-import images from '../../../asset/image';
 import classNames from 'classnames/bind';
+import images from '../../../assets/images';
 import styles from './Footer.module.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';

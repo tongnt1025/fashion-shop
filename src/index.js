@@ -4,15 +4,18 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/GlobalStyles';
-import { ContextProvider } from './ContextProduct';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import taskReducer from './taskReducer';
+const store = createStore(taskReducer);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // <React.StrictMode>
 
     <GlobalStyles>
-        <ContextProvider>
+        <Provider store={store}>
             <App />
-        </ContextProvider>
+        </Provider>
     </GlobalStyles>,
 
     // </React.StrictMode>,

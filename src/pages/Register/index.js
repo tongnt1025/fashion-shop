@@ -24,8 +24,25 @@ function Register() {
                 pass: pass,
                 email: email,
             };
-            axios.post('http://localhost/backend/apiCreateUser.php', userData).then((data) => {});
-            alert("Đăng kí tài khoản thành công");
+            localStorage.setItem("username",user);
+            localStorage.setItem("password",pass);
+
+            // fetch('https://nguyentong1025.000webhostapp.com/apiCreateUser.php', {
+            //     method: 'POST',
+            //     body: JSON.stringify(userData),
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            // })
+            //     .then((response) => response.json())
+            //     .then((data) => {
+            //         // Handle the response data
+            //     })
+            //     .catch((error) => {
+            //         console.error('Error creating user:', error);
+            //         // Handle the error, e.g., set an error state or show an error message
+            //     });
+
         }
     };
     const handleBlurEmail = (e) => {

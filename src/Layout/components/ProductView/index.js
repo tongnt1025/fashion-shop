@@ -1,4 +1,4 @@
-import images from '../../../asset/image';
+import images from '../../../assets/images'; 
 import classNames from 'classnames/bind';
 import styles from './Product.module.scss';
 import axios from 'axios';
@@ -14,14 +14,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useRef, useState } from 'react';
 import ProductDesc from '../../../components/ProductDesc';
+import getAllProducts from '../../../assets/fake-data/products';
 import { useNavigate } from 'react-router-dom';
 const cx = classNames.bind(styles);
 function Product() {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost/backend/apiAllProduct.php').then((response) => {
-            setProducts(response.data.data);
-        });
+       
+            setProducts(getAllProducts());
+        
     }, []);
     const navigate=useNavigate();
     let bestSellingProduct = [];
@@ -46,13 +47,12 @@ function Product() {
                         <Col xl={3} key={index}>
                                     <div className={cx('item')} onClick={(e)=> handleClick(product)}>
                                         <div className={cx('list-img')}>
-                                            <img src={product.imgmodel}></img>
-                                            <img src={product.imgproduct}></img>
+                                            <img src={product.image01}></img>
+                                            <img src={product.image02}></img>
                                         </div>
-                                        <span className={cx('name')}>{product.name}</span>
+                                        <span className={cx('name')}>{product.title}</span>
                                         <div className={cx('price')}>
                                             <span>{product.price}</span>
-                                            <span className={cx('price-old')}>{product.pricepromotion}</span>
                                         </div>
                                         <Button
                                             small
@@ -71,13 +71,12 @@ function Product() {
                         <Col xl={3} key={index}>
                             <div className={cx('item')} onClick={(e)=> handleClick(product)}>
                                 <div className={cx('list-img')}>
-                                    <img src={product.imgmodel}></img>
-                                    <img src={product.imgproduct}></img>
+                                    <img src={product.image01}></img>
+                                    <img src={product.image02}></img>
                                 </div>
-                                <span className={cx('name')}>{product.name}</span>
+                                <span className={cx('name')}>{product.title}</span>
                                 <div className={cx('price')}>
                                     <span>{product.price}</span>
-                                    <span className={cx('price-old')}>{product.pricepromotion}</span>
                                 </div>
                                 <Button
                                     small
@@ -99,13 +98,12 @@ function Product() {
                         <Col xl={3} key={index} onClick={(e)=> handleClick(product)}>
                             <div className={cx('item')}>
                                 <div className={cx('list-img')}>
-                                    <img src={product.imgmodel}></img>
-                                    <img src={product.imgproduct}></img>
+                                    <img src={product.image01}></img>
+                                    <img src={product.image02}></img>
                                 </div>
-                                <span className={cx('name')}>{product.name}</span>
+                                <span className={cx('name')}>{product.title}</span>
                                 <div className={cx('price')}>
                                     <span>{product.price}</span>
-                                    <span className={cx('price-old')}>{product.pricepromotion}</span>
                                 </div>
                                 <Button
                                     small
